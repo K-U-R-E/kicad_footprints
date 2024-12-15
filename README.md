@@ -26,3 +26,12 @@ Note: By contributing you agree to license it under the same MIT license as the 
 ## License
 
 All content is licensed under the MIT license, see the license file.
+
+## In progress
+
+- Script to plot (finish)
+- Script to generate README with images for quick viewing (better)
+- Footprint rules to ensure standardisation (implement)
+- Precommits so individual symbols and the library are up to date (implement)
+- CI/CD (implement)
+- Addition of templates (add)
