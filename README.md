@@ -21,7 +21,7 @@ We are open to contribution to the symbol set. Please adhere to the format provi
 
 A template file is provided
 
-Note: By contributing you agree to lucense it under the same MIT license as the rest of kicad_pid
+Note: By contributing you agree to license it under the same MIT license as the rest of kicad_pid
 
 ## License
 

@@ -20,7 +20,7 @@ def generate_readme(folder_path, readme_path):
     markdown_lines = ["# PI&D KiCAD Symbols\n"]
     for svg in svg_files:
         svg_path = os.path.join(folder_path, svg)
-        markdown_lines.append(f"##{svg}")
+        markdown_lines.append(f"## {svg}")
         markdown_lines.append(f"<img src = '{svg}' width = '500' height = '500'>")
 
     with open(readme_path, "w") as readme_file:
