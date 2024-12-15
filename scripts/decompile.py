@@ -12,6 +12,16 @@ import sexp
 
 
 def split_lib(libpath, outdir):
+    """
+    Split Monolith Library
+
+    Arguments
+
+    libpath - str
+        Path to monolith library
+    outdir - str
+        Directory to output individual footprints
+    """
 
     with open(libpath, "r") as f:
         lib_data = sexp.parse(f.read(), parse_nums=True)
@@ -33,25 +43,26 @@ def split_lib(libpath, outdir):
             components.append(entry)
 
     if components:
-        save_lib(header, current_lib, components, outdir)
+        lib_file = os.path.join(outdir, f"{curent_lib}.kicad_sym")
+        os.makedirs(os.path.dirname(lib_file), exist_ok=True)
 
-
-def save_lib(header, lib_name, components, outdir):
-    # Create the library file with the specified name
-    lib_file = os.path.join(outdir, f"{lib_name}.kicad_sym")
-    os.makedirs(os.path.dirname(lib_file), exist_ok=True)
-
-    print("Writing: " + lib_file)
-    with open(lib_file, "w") as f:
-        f.write(sexp.generate([*header, components]))
-
+        print("Writing: " + lib_file)
+        with open(lib_file, "w") as f:
+            f.write(sexp.generate([*header, components]))
 
 def usage():
+    """
+    Usgae
+
+    Prints the script's usage
+    """
+
     print("Usage: {} <compiled lib path> <output directory>".format(sys.argv[0]))
     sys.exit(1)
 
 
 if __name__ == "__main__":
+    
     if len(sys.argv) != 3:
         usage()
     else:
