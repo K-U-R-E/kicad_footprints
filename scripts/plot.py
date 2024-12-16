@@ -11,6 +11,7 @@ import sys
 
 from utils import file_changed
 
+
 def export_symbol(symbol, outdir):
     command = f"kicad-cli sym export svg '{symbol}' --output {outdir}"
     exit_code = os.system(command)
@@ -30,8 +31,8 @@ def export(symboldir, output_dir):
     output_dir - str
         Directory to output the plots
     """
-    
-    symbol_files = [] 
+
+    symbol_files = []
 
     for f in os.listdir(symboldir):
         f_abs = os.path.join(symboldir, f)
@@ -45,14 +46,14 @@ def export(symboldir, output_dir):
     for symbol in symbol_files:
         export_symbol(symbol, output_dir)
 
-
     print(f"All symbols in {symboldir} exported to {output_dir}")
     return True
 
-def generate_readme(symbols_dir, output_dir = None):
+
+def generate_readme(symbols_dir, output_dir=None):
     """
     Generates README showing current symbols
-    
+
     symbols_dir - str
         Directory containing the source SVGs
     output_dir - str
@@ -79,6 +80,7 @@ def generate_readme(symbols_dir, output_dir = None):
 
     print(f"README.md generated to {output_dir}")
 
+
 def usage():
     """
     Usage
@@ -88,6 +90,7 @@ def usage():
 
     print("Usage: {} <symbol path> <output directory>".format(sys.argv[0]))
     sys.exit(1)
+
 
 if __name__ == "__main__":
 
@@ -107,7 +110,9 @@ if __name__ == "__main__":
         sys.exist(1)
 
     if not os.path.isdir(symboldir):
-        print(f"The symbols directory '{symboldir}' does not exist.".format(sys.argv[0]))
+        print(
+            f"The symbols directory '{symboldir}' does not exist.".format(sys.argv[0])
+        )
 
     if export(symboldir, outdir):
         generate_readme(outdir)

@@ -1,4 +1,3 @@
-
 import os
 import sys
 from utils import file_changed
@@ -26,17 +25,13 @@ def main(libpath, symbolsdir):
         print("No changes")
         return
 
+
 if __name__ == "__main__":
-    
+
     if len(sys.argv) != 3:
         print("Error")
     else:
         libpath = sys.argv[1]
         symbolsdir = sys.argv[2]
-    
+
     main(libpath, symbolsdir)
-
-				
-
-
-

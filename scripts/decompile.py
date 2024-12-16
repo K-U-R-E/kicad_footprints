@@ -45,6 +45,7 @@ def split_lib(libpath, outdir):
     if components:
         save_lib(header, current_lib, components, outdir)
 
+
 def save_lib(header, lib_name, components, outdir):
     """
     Saves library
@@ -65,6 +66,7 @@ def save_lib(header, lib_name, components, outdir):
     with open(lib_file, "w") as f:
         f.write(sexp.generate([*header, components[0]]))
 
+
 def usage():
     """
     Usgae
@@ -77,7 +79,7 @@ def usage():
 
 
 if __name__ == "__main__":
-    
+
     print("Rocketry P&ID KiCAD - Decompile Monolith\n")
 
     if len(sys.argv) != 3:

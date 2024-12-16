@@ -8,6 +8,7 @@ Generates library from symbols
 
 import subprocess
 
+
 def file_changed(filepath):
     """
     Check if a file has had any changes in the Git repository.
@@ -22,7 +23,7 @@ def file_changed(filepath):
             ["git", "diff", filepath],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True
+            text=True,
         )
         return bool(result.stdout.strip())
     except FileNotFoundError:

@@ -10,6 +10,7 @@ import sys
 import os
 import sexp
 
+
 def combine_libs(libdir, outlib):
     """
     Combine individual libraries
@@ -28,7 +29,7 @@ def combine_libs(libdir, outlib):
         ['generator "kicad_symbol_editor"'],
         ['generator_version "8.0"'],
     ]
-    
+
     for lib_file in os.listdir(libdir):
         if lib_file.endswith(".kicad_sym"):
             lib_path = os.path.join(libdir, lib_file)
@@ -65,11 +66,16 @@ if __name__ == "__main__":
         outlib = sys.argv[2]
 
         if not os.path.isdir(libdir):
-            print(f"Error: Source directory '{libdir}' does not exist.", file=sys.stderr)
+            print(
+                f"Error: Source directory '{libdir}' does not exist.", file=sys.stderr
+            )
             sys.exit(1)
 
         if not os.path.isdir(outlib):
-            print(f"Warning: The intended output directory '{outlib}' does not exist.", file=sys.stderr)
+            print(
+                f"Warning: The intended output directory '{outlib}' does not exist.",
+                file=sys.stderr,
+            )
             sys.exit(1)
 
         combine_libs(libdir, outlib)
