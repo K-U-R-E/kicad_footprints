@@ -43,12 +43,27 @@ def split_lib(libpath, outdir):
             components.append(entry)
 
     if components:
-        lib_file = os.path.join(outdir, f"{curent_lib}.kicad_sym")
-        os.makedirs(os.path.dirname(lib_file), exist_ok=True)
+        save_lib(header, current_lib, components, outdir)
 
-        print("Writing: " + lib_file)
-        with open(lib_file, "w") as f:
-            f.write(sexp.generate([*header, components]))
+def save_lib(header, lib_name, components, outdir):
+    """
+    Saves library
+
+    header - list
+        Header information for file
+    lib_name - name
+        Name to export library to
+    components - list
+        Components to put into the library
+    outdir - str
+        Output directory
+    """
+    lib_file = os.path.join(outdir, f"{lib_name}.kicad_sym")
+    os.makedirs(os.path.dirname(lib_file), exist_ok=True)
+
+    print("Writing: " + lib_file)
+    with open(lib_file, "w") as f:
+        f.write(sexp.generate([*header, components[0]]))
 
 def usage():
     """

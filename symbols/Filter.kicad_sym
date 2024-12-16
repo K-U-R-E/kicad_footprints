@@ -3,144 +3,143 @@
   (version 20231120)
   (generator kicad_symbol_editor)
   (generator_version "8.0")
-  (
-    (symbol Filter
-      (exclude_from_sim no)
-      (in_bom yes)
-      (on_board yes)
-      (property Reference Filter
-        (at 0 -10 0)
-        (effects
-          (font
-            (size 1.2700 1.2700))))
-      (property Value ""
-        (at 0 0 0)
-        (effects
-          (font
-            (size 1.2700 1.2700))))
-      (property Footprint ""
-        (at 0 0 0)
-        (effects
-          (font
-            (size 1.2700 1.2700))
-          (hide yes)))
-      (property Datasheet ""
-        (at 0 0 0)
-        (effects
-          (font
-            (size 1.2700 1.2700))
-          (hide yes)))
-      (property Description ""
-        (at 0 0 0)
-        (effects
-          (font
-            (size 1.2700 1.2700))
-          (hide yes)))
-      (symbol "Filter_1_1"
-        (rectangle private
-          (start -8 8)
-          (end 8 -8)
-          (stroke
-            (width 0.1000)
-            (type dot))
-          (fill
-            (type none)))
-        (rectangle private
-          (start -5 4)
-          (end 5 -4)
-          (stroke
-            (width 0.1000)
-            (type dot))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy -2 -2)
-            (xy -2 2))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy -2 -2)
-            (xy 2 -2))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy -2 -2)
-            (xy 2 2))
-          (stroke
-            (width 0.1000)
-            (type dash))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy -2 2)
-            (xy 2 2))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy 2 2)
-            (xy 2 -2))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type none)))
-        (polyline
-          (pts
-            (xy -3 0)
-            (xy -3 0.2500)
-            (xy -2 0)
-            (xy -3 -0.2500)
-            (xy -3 0))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type outline)))
-        (polyline
-          (pts
-            (xy 4 0)
-            (xy 4 0.2500)
-            (xy 5 0)
-            (xy 4 -0.2500)
-            (xy 4 0))
-          (stroke
-            (width 0.1000)
-            (type default))
-          (fill
-            (type outline)))
-        (pin input line
-          (at -5 0 0)
-          (length 3)
-          (name ""
-            (effects
-              (font
-                (size 1.2700 1.2700))))
-          (number ""
-            (effects
-              (font
-                (size 1.2700 1.2700)))))
-        (pin output line
-          (at 5 0 180)
-          (length 3)
-          (name ""
-            (effects
-              (font
-                (size 1.2700 1.2700))))
-          (number ""
-            (effects
-              (font
-                (size 1.2700 1.2700)))))))))
+  (symbol Filter
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property Reference Filter
+      (at 0 -10 0)
+      (effects
+        (font
+          (size 1.2700 1.2700))))
+    (property Value ""
+      (at 0 0 0)
+      (effects
+        (font
+          (size 1.2700 1.2700))))
+    (property Footprint ""
+      (at 0 0 0)
+      (effects
+        (font
+          (size 1.2700 1.2700))
+        (hide yes)))
+    (property Datasheet ""
+      (at 0 0 0)
+      (effects
+        (font
+          (size 1.2700 1.2700))
+        (hide yes)))
+    (property Description ""
+      (at 0 0 0)
+      (effects
+        (font
+          (size 1.2700 1.2700))
+        (hide yes)))
+    (symbol "Filter_1_1"
+      (rectangle private
+        (start -8 8)
+        (end 8 -8)
+        (stroke
+          (width 0.1000)
+          (type dot))
+        (fill
+          (type none)))
+      (rectangle private
+        (start -5 4)
+        (end 5 -4)
+        (stroke
+          (width 0.1000)
+          (type dot))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy -2 -2)
+          (xy -2 2))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy -2 -2)
+          (xy 2 -2))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy -2 -2)
+          (xy 2 2))
+        (stroke
+          (width 0.1000)
+          (type dash))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy -2 2)
+          (xy 2 2))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 2 2)
+          (xy 2 -2))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy -3 0)
+          (xy -3 0.2500)
+          (xy -2 0)
+          (xy -3 -0.2500)
+          (xy -3 0))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type outline)))
+      (polyline
+        (pts
+          (xy 4 0)
+          (xy 4 0.2500)
+          (xy 5 0)
+          (xy 4 -0.2500)
+          (xy 4 0))
+        (stroke
+          (width 0.1000)
+          (type default))
+        (fill
+          (type outline)))
+      (pin input line
+        (at -5 0 0)
+        (length 3)
+        (name ""
+          (effects
+            (font
+              (size 1.2700 1.2700))))
+        (number ""
+          (effects
+            (font
+              (size 1.2700 1.2700)))))
+      (pin output line
+        (at 5 0 180)
+        (length 3)
+        (name ""
+          (effects
+            (font
+              (size 1.2700 1.2700))))
+        (number ""
+          (effects
+            (font
+              (size 1.2700 1.2700))))))))
