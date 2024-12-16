@@ -9,8 +9,19 @@ Generates library from symbols
 import os
 import sys
 
+from utils import file_changed
 
-def export(lib_file, output_dir):
+def export_symbol(symbol, outdir):
+    command = f"kicad-cli sym export svg '{symbol}' --output {outdir}"
+    exit_code = os.system(command)
+
+    if exit_code == 0:
+        print(f"Exported {symbol} to '{outdir}'\n")
+    else:
+        print(f"Failed to export {symbol}")
+
+
+def export(symboldir, output_dir):
     """
     Export library symbols as SVGs
 
@@ -19,17 +30,24 @@ def export(lib_file, output_dir):
     output_dir - str
         Directory to output the plots
     """
+    
+    symbol_files = [] 
 
-    command = f"kicad-cli sym export svg {lib_file } --output {output_dir}"
+    for f in os.listdir(symboldir):
+        f_abs = os.path.join(symboldir, f)
+        if f.endswith(".kicad_sym") and file_changed(f_abs):
+            symbol_files.append(f_abs)
 
-    exit_code = os.system(command)
+    if not symbol_files:
+        print(f"No symbols found in '{symboldir}'")
+        return False
 
-    if exit_code == 0:
-        print(f"Exported symbols to '{output_dir}'")
-    else:
-        print(f"Failed to export symbols")
-        sys.exit(1)
+    for symbol in symbol_files:
+        export_symbol(symbol, output_dir)
 
+
+    print(f"All symbols in {symboldir} exported to {output_dir}")
+    return True
 
 def generate_readme(symbols_dir, output_dir = None):
     """
@@ -59,7 +77,7 @@ def generate_readme(symbols_dir, output_dir = None):
     with open(readme_path, "w") as readme_file:
         readme_file.write("\n".join(markdown_lines))
 
-    print(f"README.md generated at {output_dir}")
+    print(f"README.md generated to {output_dir}")
 
 def usage():
     """
@@ -68,24 +86,28 @@ def usage():
     Prints the script's usage
     """
 
-    print("Usage: {} <compiled lib path> <output directory>".format(sys.argv[0]))
+    print("Usage: {} <symbol path> <output directory>".format(sys.argv[0]))
     sys.exit(1)
 
 if __name__ == "__main__":
 
+    print("Rocketry P&ID KiCAD - Plotting\n")
+
     if len(sys.argv) != 3:
         usage()
     else:
-        libpath = sys.argv[1]
+        symboldir = sys.argv[1]
         outdir = sys.argv[2]
 
-    if not os.path.exists(libpath):
-        print(f"The library file '{libpath}' does not exist".format(sys.argv[0]))
-        sys.exit(1)
+        print(f"Individual Symbol Path: {symboldir}")
+        print(f"Output Path: {outdir}\n")
 
     if not os.path.isdir(outdir):
         print(f"The output directory '{outdir}' does not exist.".format(sys.argv[0]))
         sys.exist(1)
 
-    export(libpath, outdir)
-    generate_readme(outdir)
+    if not os.path.isdir(symboldir):
+        print(f"The symbols directory '{symboldir}' does not exist.".format(sys.argv[0]))
+
+    if export(symboldir, outdir):
+        generate_readme(outdir)

@@ -78,6 +78,8 @@ def usage():
 
 if __name__ == "__main__":
     
+    print("Rocketry P&ID KiCAD - Decompile Monolith\n")
+
     if len(sys.argv) != 3:
         usage()
     else:
@@ -93,4 +95,4 @@ if __name__ == "__main__":
             sys.exit(1)
 
         split_lib(libpath, outdir)
-        print(f"Library has been split and saved to {outdir}")
+        print(f"Library has been split and saved to {outdir}\n\n")
