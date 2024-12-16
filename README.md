@@ -1,4 +1,4 @@
-# Rocketey PI&D KiCAD Library
+# Rocketry PI&D KiCAD Library
 
 This repository contains a set of P&ID symbols as KiCAD symbols. The symbol set was created for use in rocketry by UK university rocketry teams:
 
