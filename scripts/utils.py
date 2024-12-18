@@ -20,7 +20,7 @@ def file_changed(filepath):
 
     try:
         result = subprocess.run(
-            ["git", "diff", filepath],
+            ["git", "status", "--porcelain", filepath],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
